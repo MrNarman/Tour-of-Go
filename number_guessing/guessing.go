@@ -13,7 +13,7 @@ func main() {
 	userTrials = 3
 
 	//Generate random number
-	randomNumber := rand.Intn(10)
+	randomNumber := rand.Intn(11)
 
 	for gameON {
 
