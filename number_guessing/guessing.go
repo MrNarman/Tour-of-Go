@@ -16,32 +16,41 @@ func main() {
 	randomNumber := rand.Intn(10)
 
 	for gameON {
-		//Ask for user to input number
-		fmt.Printf("number %d \n", randomNumber) // Remove this
 
-		fmt.Print("Enter your guess: ")
-		_, err := fmt.Scan(&userGuess)
-
-		if err != nil {
-			userTrials -= 1
-			fmt.Printf("Wrong input. %d chance(s) left", userTrials)
-
+		if userTrials == 0 {
+			fmt.Println("You have 0 chance(s) left")
+			fmt.Printf("The correct number was %d \n", randomNumber)
+			fmt.Print("GAME OVER")
+			break
 		} else {
-			//Check input against random number
-			if userGuess > randomNumber {
-				fmt.Println("Guess too high! Try again")
-				userTrials -= 1
-				fmt.Printf("%d chance(s) left", userTrials)
-			} else if userGuess < randomNumber {
-				fmt.Println("Guess too low! Try again")
-				userTrials -= 1
-				fmt.Printf("%d chance(s) left", userTrials)
-			} else {
-				fmt.Println("Hurray! you got it.")
-				fmt.Printf("The correct guess is %d, ", randomNumber)
-				break
-			}
+			//Ask for user to input number
+			// fmt.Printf("number %d \n", randomNumber) // Remove this
 
+			fmt.Print("Enter your guess (1 to 10): ")
+			_, err := fmt.Scan(&userGuess)
+
+			if err != nil {
+				userTrials -= 1
+				fmt.Printf("Wrong input. %d chance(s) left", userTrials)
+
+			} else {
+				//Check input against random number
+				if userGuess > randomNumber {
+					fmt.Println("Guess too high! Try again")
+					userTrials -= 1
+					fmt.Printf("%d chance(s) left \n\n", userTrials)
+
+				} else if userGuess < randomNumber {
+					fmt.Println("Guess too low! Try again")
+					userTrials -= 1
+					fmt.Printf("%d chance(s) left \n\n", userTrials)
+
+				} else {
+					fmt.Println("Hurray! you got it.")
+					fmt.Printf("The correct guess is %d, ", randomNumber)
+					break
+				}
+			}
 		}
 	}
 }
