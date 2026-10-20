@@ -1,0 +1,47 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+var gameON bool = true
+var userGuess int
+var userTrials int
+
+func main() {
+	userTrials = 3
+
+	//Generate random number
+	randomNumber := rand.Intn(10)
+
+	for gameON {
+		//Ask for user to input number
+		fmt.Printf("number %d \n", randomNumber) // Remove this
+
+		fmt.Print("Enter your guess: ")
+		_, err := fmt.Scan(&userGuess)
+
+		if err != nil {
+			userTrials -= 1
+			fmt.Printf("Wrong input. %d chance(s) left", userTrials)
+
+		} else {
+			//Check input against random number
+			if userGuess > randomNumber {
+				fmt.Println("Guess too high! Try again")
+				userTrials -= 1
+				fmt.Printf("%d chance(s) left", userTrials)
+			} else if userGuess < randomNumber {
+				fmt.Println("Guess too low! Try again")
+				userTrials -= 1
+				fmt.Printf("%d chance(s) left", userTrials)
+			} else {
+				fmt.Println("Hurray! you got it.")
+				fmt.Printf("The correct guess is %d, ", randomNumber)
+				break
+			}
+
+		}
+	}
+}
