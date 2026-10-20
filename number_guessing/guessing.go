@@ -22,10 +22,9 @@ func main() {
 			fmt.Printf("The correct number was %d \n", randomNumber)
 			fmt.Print("GAME OVER")
 			break
+
 		} else {
 			//Ask for user to input number
-			// fmt.Printf("number %d \n", randomNumber) // Remove this
-
 			fmt.Print("Enter your guess (1 to 10): ")
 			_, err := fmt.Scan(&userGuess)
 
