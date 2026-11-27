@@ -60,4 +60,7 @@ func HelloWorld() {
 	array3 := [...]int{1: 23, 2: 45, 6}
 	fmt.Println(array3)
 	fmt.Print(len(array3)) */
+
+	//trial push after configuring git on vs code
+
 }
